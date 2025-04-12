@@ -5,7 +5,7 @@ import { useCollection } from "react-firebase-hooks/firestore"
 import { FaSearch, FaTimes } from "react-icons/fa"
 import { firestore } from "../../../firebase/clientApp"
 import Event from "../../Event"
-import { GoSettings } from "react-icons/go"
+import { GoGear } from "react-icons/go"
 import axios from "axios"
 import FilterModel from "./FilterModel"
 import styled from "styled-components"
@@ -82,7 +82,7 @@ const SearchBar = () => {
             filtered ? "text-primary-400" : "text-gray-400"
           }`}
         >
-          <GoSettings
+          <GoGear
             size={20}
             style={{ transform: "rotate(90deg)" }}
             onClick={() => {

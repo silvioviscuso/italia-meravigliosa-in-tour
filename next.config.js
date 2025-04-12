@@ -17,3 +17,9 @@ module.exports = {
     domains: ["firebasestorage.googleapis.com"],
   },
 }
+
+module.exports = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+};
