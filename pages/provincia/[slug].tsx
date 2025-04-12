@@ -21,7 +21,7 @@ const Provincia: NextPage = ({ slug }: { slug: string }) => {
       d.data()._fl_meta_.schema === "evento" &&
         setListaEventi((listaEventi) => [...listaEventi, d.data()])
     })
-  }, [data])
+  }, [data, slug])
 
   const eventi = listaEventi.filter((doc) => doc?.luogo === slug)
   const ADSENSE_PUBLISHER_KEY = "ca-pub-7292810486004926"

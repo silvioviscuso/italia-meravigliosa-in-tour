@@ -27,7 +27,7 @@ const Categoria: NextPage = ({ slug }: { slug: string }) => {
         ? setListaEventi((listaEventi) => [...listaEventi, d.data()])
         : setCategorie((categorie) => [...categorie, d.data()])
     })
-  }, [data])
+  }, [data, slug])
 
   const categoria = categorie?.find(
     (el) => el.titolo.toLowerCase() === slug.toLowerCase()

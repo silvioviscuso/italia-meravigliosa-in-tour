@@ -51,7 +51,7 @@ const Evento: NextPage = () => {
     })
     // console.log("All events inside use efefec",)
     setEvento(allEvents?.filter((doc) => doc.slug === slug)[0])
-  }, [data])
+  }, [data, slug])
 
   const [listaCommenti, listaCommentiLoading, listaCommentiError] =
     useCollection(collection(firestore, "commenti"), {})

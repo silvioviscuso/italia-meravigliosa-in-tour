@@ -242,7 +242,7 @@ const Regione: NextPage = ({ slug }: { slug: string }) => {
       d.data()._fl_meta_.schema === "evento" &&
         setListaEventi((listaEventi) => [...listaEventi, d.data()])
     })
-  }, [data])
+  }, [data, slug])
 
   const eventi = listaEventi.filter((doc) => doc?.region === region)
 
