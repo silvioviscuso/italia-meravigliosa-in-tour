@@ -7,7 +7,7 @@ import { useCollection } from "react-firebase-hooks/firestore"
 import { FaFilter, FaSearch, FaTimes } from "react-icons/fa"
 import { firestore } from "../../firebase/clientApp"
 import Event from "../Event"
-import { GoSettings } from "react-icons/go";
+import { GoGear } from "react-icons/go";
 
 // TODO finish modal button picker filter
 
@@ -64,7 +64,7 @@ export const SearchBar = () => {
             filtered ? "text-primary-400" : "text-gray-400"
           }`}
         >
-          <GoSettings size={20} style={{transform:"rotate(90deg)"}} />
+          <GoGear size={20} style={{ transform: "rotate(90deg)" }} />
         </button>
 
         {categoria !== "" && (

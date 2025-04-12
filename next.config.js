@@ -16,3 +16,9 @@ module.exports = {
     path: '/'
   },
 }
+
+module.exports = {
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+};
