@@ -2,24 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  --color-text-primary: #27272a;
+  --color-bg-input: #f4f4f5 !important;
+  --color-text-secondary: #52525b;
+  --color-bg-primary: #fff;
+  --color-bg-toggle: #1e90ff;
+}
+
+body {
+  background: var(--color-bg-primary) !important;
+  color: var(--color-text-primary) !important;
+  transition: background 0.25s ease-in-out !important;
+}
+
 html,
 body {
   overflow-x: hidden !important;
   scroll-behavior: smooth;
 }
 
-/* Header */
-.header {
-  box-shadow: 0 6px 5px #0000001a;
+p {
+  color: var(--color-text-secondary);
 }
 
-@media only screen and (min-width: 0px) and (max-width: 700px) {
-  /* .search-bar {
+p.prose.prose-red span {
+  color: var(--color-text-secondary) !important;
+}
 
-    position: relative;
-    top: 80px;
-    padding-top: 20px;
-  } */
+.eventIcon {
+  background: var(--color-bg-primary) !important;
+}
+
+/* Header */
+.header {
+  box-shadow: 0 3px 5px #0000001a;
+  background: var(--color-bg-primary) !important;
+}
+
+.userLogout {
+  background: var(--color-bg-primary) !important;
+}
+
+.searchInput {
+  background-color: var(--color-bg-input) !important;
+}
+
+textarea {
+  background-color: var(--color-bg-input) !important;
+}
+
+.searchInput input {
+  color: var(--color-text-primary) !important;
 }
 
 img.betaLabel {
@@ -28,15 +62,13 @@ img.betaLabel {
 }
 
 /* Map Section */
-
-.hand1 {
-  border-radius: 20% !important;
+.first-title {
+  font-family: "Pacifico", cursive;
+  margin-bottom: -5px;
 }
 
-.hand1:hover {
-  cursor: pointer;
-  transition: 0.4s;
-  transform: scale(0.6);
+.hand1 {
+  top: 24px !important;
 }
 
 /* Welcome Section */
@@ -45,7 +77,7 @@ img.betaLabel {
 }
 
 .cards {
-  border-radius: 8%;
+  box-shadow: 0px 5px 10px #333;
 }
 
 .iconCategory {
@@ -76,8 +108,12 @@ input#newsletter:hover {
 /* Facebook Section */
 .facebook_text {
   font-weight: 600;
-  font-size: 33px;
-  width: 60%;
+  font-size: 26px;
+  width: 70%;
+}
+
+.facebook-mobile {
+  display: flex;
 }
 
 .facebook_text_grid_width {
@@ -116,7 +152,7 @@ form input[type="text"],
 input[type="email"],
 input[type="file"],
 textarea {
-  border: 1px solid rgb(250, 250, 250);
+  border: 1px solid var(--color-bg-primary);
 }
 
 form input[type="text"]:hover,
@@ -129,9 +165,8 @@ textarea:hover {
 /* Bottom NavBar */
 
 .botton_navbar {
-  padding-top: 10px;
-  padding-bottom: 10px;
   box-shadow: 0 -3px 5px #0000001a;
+  background: white;
 }
 
 .homeIcon:hover,
@@ -143,8 +178,34 @@ textarea:hover {
   transition: 0.2s;
 }
 
+.welcomemapWrapper {
+  margin-top: 0 !important;
+}
+
 .welcome-map {
-  padding-top: 62px;
+  margin-top: 62px !important;
+  margin-left: 0 !important;
+  margin-bottom: -8px !important;
+}
+
+.sidebar-back {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+  transition: opacity 0.3s ease 0s;
+  z-index: 900;
+}
+
+.mobile-menu {
+  position: fixed;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#luoghi {
+  margin-top: 0 !important;
 }
 
 .eventImage {
@@ -184,6 +245,7 @@ textarea:hover {
   position: relative;
   bottom: 85px;
   padding-top: 20px;
+  font-size: 13px;
 }
 
 .copyright-wrapper a {
@@ -193,10 +255,28 @@ textarea:hover {
   padding-top: 4px;
 }
 
+.divider {
+  padding: 30px 0;
+  width: 100% !important;
+  margin: 0 auto;
+  box-shadow: 0 1em 1em -1em rgba(0, 0, 0, 0.25);
+}
+
 .copyright-wrapper a:hover {
   transition: 0.2s;
   transform: scale(1.1);
   text-shadow: 0 0 3px rgb(147, 215, 255);
+}
+
+.credit-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+}
+
+.credit-footer a {
+  padding-left: 8px;
 }
 
 .footer-grid {
@@ -206,13 +286,78 @@ textarea:hover {
   justify-content: center;
 }
 
-.fbicon {
-  cursor: pointer;
-  margin-top: -20px;
-  width: 156px !important;
-  min-width: unset !important;
-  max-width: unset !important;
-  left: 9px !important;
+.wrapperUsername2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1e90ff;
+  max-height: 43px;
+  border-radius: 6px;
+  padding: 14px;
+  max-width: 264px;
+  margin: 0 auto;
+}
+
+.wrapperUsername3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1e90ff;
+  max-height: 40px;
+  border-radius: 6px;
+  padding: 14px;
+  max-width: 200px;
+  font-size: 15px;
+}
+
+.wrapperUsername2 svg {
+  margin-right: 8px;
+}
+
+.wrapperUsername3 svg {
+  margin-right: 8px;
+}
+
+.footer-email {
+  font-weight: 600;
+  padding-left: 6px;
+}
+
+.iubenda:hover {
+  transition: 0.2s;
+  color: #10b981;
+  transform: scale(1.1);
+}
+
+.footer-email:hover {
+  transition: 0.2s;
+  color: #10b981;
+  transform: scale(1.1) translateX(10px);
+}
+
+.facebook-list {
+  padding-left: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.markerList {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #2196f3;
+  animation: pulse 1500ms infinite;
+  margin-right: 6px;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: #2196f3 0 0 0 0;
+  }
+  75% {
+    box-shadow: #ff69b400 0 0 0 16px;
+  }
 }
 
 /* Event Detail */
@@ -243,14 +388,15 @@ textarea:hover {
 .wrapperDropdown button {
   background-color: #f3f4f6;
 }
-
-.facebook-mobile-icon {
-  display: flex;
-  padding: 40px 0px;
+.tutorialWrapper {
+  margin-left: -44px;
 }
-
 /* Media Query */
 @media only screen and (min-width: 329px) and (max-width: 1281px) {
+  .tutorialWrapper {
+    margin-left: -8px;
+  }
+
   .homeIcon,
   .heartIcon,
   .infoIcon,
@@ -264,12 +410,10 @@ textarea:hover {
   }
 
   .welcome-subtitle {
-    font-size: 18px !important;
-    padding: 33px !important;
+    font-size: 20px !important;
+    padding: 16px !important;
   }
-  .user-active {
-    font-size: 29px !important;
-  }
+
   .workwithus {
     font-size: 29px !important;
   }
@@ -281,12 +425,30 @@ textarea:hover {
     border-left: none;
     border-right: none;
   }
+
+  .logo_navbar {
+    max-width: 200px !important;
+    width: 100px !important;
+  }
+
+  .w-full
+    button.w-fit.rounded-full.bg-red-500.py-2.px-6.font-bold.text-white.hover\:bg-red-700 {
+    font-size: 10px;
+  }
 }
 
-@media only screen and (min-width: 0px) and (max-width: 700px) {
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+  .heartIconWrapper {
+    margin: 0 auto;
+  }
+
+  .categywrapper {
+    margin-left: 0 !important;
+  }
+
   .facebook_text {
     font-weight: 600;
-    font-size: 33px;
+    font-size: 26px;
     width: 100%;
   }
   .luogoSpan {
@@ -298,22 +460,67 @@ textarea:hover {
   }
 }
 
-@media only screen and (min-width: 0px) and (max-width: 700px) {
+.info_title {
+  margin-bottom: -8px;
+}
+
+.info_title span:first-child {
+  position: relative !important;
+  top: 7px !important;
+  left: 5px;
+}
+
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+  .first-title {
+    font-size: 28px;
+  }
+
+  .info_title {
+    font-size: 14px !important;
+  }
+
   .facebook_text_grid_width {
     width: 100%;
     text-align: center;
   }
 
+  .facebook_text_grid_width a {
+    font-size: 13px !important;
+  }
+
+  .facebook_text_grid_width ul {
+    flex-flow: column;
+  }
+
   .facebook-mobile {
     margin-left: 0px !important;
+    display: block;
   }
 
   .facebook-mobile-icon {
-    display: block !important;
+    justify-content: flex-start;
+  }
+
+  .adscustom {
+    flex-flow: column;
+    border-radius: 20px !important;
+    max-width: 400px;
+  }
+
+  .adscustom p {
+    font-size: 20px !important;
+  }
+
+  .adscustom a {
+    margin: 20px;
   }
 }
 
-@media only screen and (min-width: 0px) and (max-width: 700px) {
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+  .facebook-mobile-icon {
+    justify-content: center;
+  }
+
   .hide_mobile {
     display: none;
   }
@@ -323,23 +530,140 @@ textarea:hover {
   display: none;
 }
 
+.wrapperUsername:hover {
+  transition: 0.2s;
+  box-shadow: 2px 2px 2px #1e90ff;
+}
+
+.fbListWrapper {
+  display: flex;
+}
+
 /* Media Query */
-@media only screen and (min-width: 0px) and (max-width: 700px) {
+
+@media screen and (min-width: 1024px) {
+  .lg:inline-flex {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 1024px) {
+  .mobile-menu {
+    display: flex;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+  .wrapperUsername {
+    justify-content: center;
+  }
+
+  .fbListWrapper {
+    justify-content: space-evenly;
+  }
+
   .view_mobile {
     display: block;
     align-items: center;
     display: flex;
     flex-direction: column;
   }
+
   .tabText {
     font-size: 12px;
   }
-  .facebook_list {
-    display: flex;
-    text-align: center;
+
+  .fbicon {
+    margin: auto;
   }
-  .facebook_list li {
-    margin: 10px;
-    font-size: 14px;
+
+  /* Override Swiper */
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    position: relative;
   }
+}
+
+/* Override Swiper */
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  margin-bottom: -10px !important;
+}
+
+/* BANNERADS CUSTOM */
+.adscustom {
+  background-color: #c7fde5;
+  position: relative;
+  top: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  padding: 20px 0;
+  margin: -100px 0 160px 0;
+  border-radius: 100px;
+}
+
+.adscustom p {
+  text-align: center;
+  font-family: "Helvetica";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 29.8988px;
+  line-height: 110%;
+  letter-spacing: 0.01em;
+  color: #009d69 !important;
+}
+
+.adscustom .btn-bannerads {
+  padding: 10px 50px;
+  background: #009d69;
+  border: 1px solid #009d69;
+  border-radius: 50px;
+  color: white;
+}
+
+.title-bannerads {
+  padding: 10px 50px;
+  border-radius: 50px;
+  color: #08be82;
+  font-size: 1.5rem;
+}
+
+.title-bannerads:hover {
+  transition: 0.2s;
+  color: #048d5f;
+  text-shadow: 2px 2px 5px rgba(48, 48, 48, 0.233);
+}
+
+.adscustom .btn-bannerads:hover {
+  transition: 0.2s;
+  background: #08be82;
+  border: 1px solid #08be82;
+  color: white;
+}
+
+.fbicon {
+  cursor: pointer;
+  margin-top: -20px;
+  width: 156px !important;
+  min-width: unset !important;
+  max-width: unset !important;
+  left: 9px !important;
+  margin: 0 !important;
+}
+
+.fbicon:hover {
+  transition: 0.2s all;
+  transform: scale(1.1);
+}
+
+
+/* WHATSAPP */
+.styles-module_whatsappButton__IWx9V {
+  bottom: 100px !important;
 }

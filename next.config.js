@@ -12,8 +12,9 @@ module.exports = withPWA({
 })
 module.exports = {
   images: {
-    loader: 'akamai',
-    path: '/'
+    loader: "akamai",
+    path: "/",
+    domains: ["firebasestorage.googleapis.com"],
   },
 }
 

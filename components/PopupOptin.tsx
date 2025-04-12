@@ -1,14 +1,32 @@
 import { Dialog, Transition } from "@headlessui/react"
-import { Fragment, useState } from "react"
+import { Fragment, useEffect, useState } from "react"
 import Input from "./common/Input"
 
-import { subscribeToConvertKit } from "../services/subscribe";
+import { subscribeToConvertKit } from "../services/subscribe"
 
 export default function PopupOptin() {
-  let [isOpen, setIsOpen] = useState(Math.random() < 0.5)
+  // let [isOpen, setIsOpen] = useState(Math.random() < 0.5) // 50% possibilita che il popup si apre
+  let [isOpen, setIsOpen] = useState(false)
 
+  useEffect(() => {
+    const popupOpened = window.localStorage.getItem("popupOpened")
 
-  const [email, setEmail] = useState("");
+    if (popupOpened) {
+      window.localStorage.setItem(
+        "popupOpened",
+        (parseInt(popupOpened) + 1).toString()
+      )
+
+      if (parseInt(popupOpened) < 2) {
+        setIsOpen(true)
+      }
+    } else {
+      window.localStorage.setItem("popupOpened", "1")
+      setIsOpen(true)
+    }
+  }, [])
+
+  const [email, setEmail] = useState("")
 
   function closeModal() {
     setIsOpen(false)
@@ -19,7 +37,7 @@ export default function PopupOptin() {
   }
 
   const subscribeNow = async () => {
-    const status = await subscribeToConvertKit({ email });
+    const status = await subscribeToConvertKit({ email })
 
     if (status) {
       closeModal()
@@ -52,11 +70,11 @@ export default function PopupOptin() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="grid w-full max-w-xl transform grid-cols-3 overflow-hidden rounded-2xl bg-white text-left align-middle shadow-xl transition-all">
+              <div className="userLogout grid w-full max-w-xl transform grid-cols-3 overflow-hidden rounded-2xl text-left align-middle shadow-xl transition-all">
                 <div
                   style={{
                     backgroundImage:
-                      "url('https://static.nationalgeographic.it/files/styles/image_3200/public/gettyimages-660629130_1.jpg?w=1600&h=900')",
+                      "url('https://scontent.fmxp6-1.fna.fbcdn.net/v/t1.6435-9/81275872_107549224099981_1527722306728624128_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=qwN5O9bMr-MAX-tMJBQ&_nc_ht=scontent.fmxp6-1.fna&oh=00_AT9FJccLEe29eHVxN3LiGM38T2TD0F7GTCoqOsqpnNrmOQ&oe=634CF990')",
                     backgroundPosition: "center",
                     backgroundSize: "cover",
                   }}
@@ -68,7 +86,7 @@ export default function PopupOptin() {
                     Nuove informazioni ogni giorno
                   </h5>
 
-                  <h2 className="text-2xl font-extrabold text-gray-800">
+                  <h2 className="text-2xl font-extrabold">
                     Iscriviti alla newsletter
                   </h2>
 
@@ -105,6 +123,9 @@ export default function PopupOptin() {
                     >
                       Iscriviti
                     </button>
+                  </div>
+                  <div className="text-sm font-medium text-gray-500 dark:text-gray-300" style={{paddingTop: 12}}>
+                      Non sei registrato? <a href="/signup" className="text-blue-700 hover:underline dark:text-blue-500">Crea un account</a>
                   </div>
                 </div>
               </div>

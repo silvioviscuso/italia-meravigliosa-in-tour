@@ -1,5 +1,5 @@
 {
-    "theme_color": "#EF4444",
+    "theme_color": "#ffffff",
     "background_color": "#ffffff",
     "display": "standalone",
     "scope": "/",
@@ -9,23 +9,23 @@
     "short_name": "Italia in Tour",
     "icons": [
         {
-            "src": "/icon-192x192.png",
-            "sizes": "192x192",
+            "src": "/favicon-16x16.png",
+            "sizes": "16x16",
             "type": "image/png"
         },
         {
-            "src": "/icon-256x256.png",
-            "sizes": "256x256",
+            "src": "/favicon-32x32.png",
+            "sizes": "32x32",
             "type": "image/png"
         },
         {
-            "src": "/icon-384x384.png",
-            "sizes": "384x384",
+            "src": "/android-chrome-144x144.png",
+            "sizes": "144x144",
             "type": "image/png"
         },
         {
-            "src": "/icon-512x512.png",
-            "sizes": "512x512",
+            "src": "/mstile-150x150.png",
+            "sizes": "150x150",
             "type": "image/png"
         },
         {

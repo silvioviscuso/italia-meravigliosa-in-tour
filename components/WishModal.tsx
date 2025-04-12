@@ -4,15 +4,13 @@ import { FaTimes } from "react-icons/fa"
 import WishContext from "./context/WishContext"
 import Event from "./Event"
 
-const WishModal = ({
-  modalOpen,
-  setModalOpen,
-}: {
+interface Props {
   modalOpen: boolean
   setModalOpen: Function
-}) => {
-  const { items, remove } = useContext(WishContext)
+}
 
+const WishModal: React.FC<Props> = ({ modalOpen, setModalOpen }) => {
+  const { items, remove } = useContext(WishContext)
   const removeFromWish = (id: string) => {
     if (remove) {
       remove(id)
@@ -68,7 +66,7 @@ const WishModal = ({
                 </Dialog.Title>
                 <div className="mb-6 mt-2">
                   <p className="text-sm text-gray-500">
-                    Ecco gli eventi che hai aggiunto alla wishlist:
+                    Ecco i luoghi che hai aggiunto alla wishlist:
                   </p>
                 </div>
               </div>
@@ -78,6 +76,7 @@ const WishModal = ({
                   items?.map((item) => (
                     <div className="flex items-center space-x-2 px-6">
                       <button
+                        title="wishlist"
                         onClick={() => removeFromWish(item.id)}
                         className="h-fit rounded-md bg-secondary-100 p-2 text-secondary-500 outline-none ring-secondary-200 ring-offset-2 transition duration-200 hover:bg-secondary-200 focus:ring-2"
                       >
@@ -95,7 +94,7 @@ const WishModal = ({
                   ))
                 ) : (
                   <p className="mt-4 px-6 text-lg text-gray-800">
-                    Non hai aggiunto eventi alla Wishlist
+                    Non hai aggiunto luoghi alla Wishlist
                   </p>
                 )}
               </div>

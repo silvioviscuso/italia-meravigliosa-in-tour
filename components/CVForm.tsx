@@ -16,10 +16,10 @@ const CVForm = () => {
 
         emailjs
           .sendForm(
-            "service_se2mvo3",
-            "template_pcksqbv",
+            "service_ymj3ef9",
+            "template_sayv3ff",
             e.target,
-            "B13JDwX1LmZ1SU1aE"
+            "BpMal4ucD4kQnXfkM"
           )
           .then(
             (result) => {
@@ -47,7 +47,7 @@ const CVForm = () => {
         />
       </div>
 
-      <Input id="cv" label="CV" type="text" placeholder="Link al CV..." />
+      {/* <Input id="cv" label="CV" type="text" placeholder="Link al CV..." /> */}
 
       <br />
 

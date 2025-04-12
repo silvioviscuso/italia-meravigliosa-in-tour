@@ -1,11 +1,17 @@
-import React from "react"
 import Contatti from "../components/Contatti"
+import SeoHead from "../components/Seo/SeoHead"
+import { NextPage } from "next"
 
-const contatti = () => {
+const contatti: NextPage = () => {
   return (
-    <div className="mx-auto mt-8 max-w-6xl">
+    <div className="mx-auto mt-24 max-w-6xl">
+      <SeoHead
+        title="Italia Meravigliosa in tour"
+        description="Trova luoghi meravigliosi in tutta Italia alla portata di un click."
+        imageUrl="/apple-touch-icon.png" 
+      />
       <main className="flex w-full flex-col px-4">
-        <h4 className="text-center text-4xl font-bold text-gray-800 md:text-left">
+        <h4 className="text-center text-4xl font-bold md:text-left">
           Contatti
         </h4>
         <br />
@@ -14,7 +20,7 @@ const contatti = () => {
 
         <br />
         <br />
-        <div className="w-full bg-gray-100 mb-6">
+        <div className="w-full bg-gray-100">
           <p className="mt-2 ml-2 rounded-lg text-gray-500">Pubblicità</p>
 
           <ins

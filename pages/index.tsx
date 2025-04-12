@@ -1,26 +1,17 @@
 // @ts-nocheck
-
-import Image from "next/image"
 import type { NextPage } from "next"
-import { SearchBar } from "../components/common/SearchBar"
-import Event from "../components/Event"
 import React, { useEffect, useState } from "react"
 import { useCollection } from "react-firebase-hooks/firestore"
 import { collection } from "firebase/firestore"
-import { firestore } from "../firebase/clientApp"
-import Contatti from "../components/Contatti"
-import { FaAngleDown } from "react-icons/fa"
-import PerfectScrollbar from "react-perfect-scrollbar"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Pagination } from "swiper"
 
 import "swiper/css"
 import "swiper/css/pagination"
 import "react-perfect-scrollbar/dist/css/styles.css"
-import Link from "next/link"
-import Input from "../components/common/Input"
-import PopupOptin from "../components/PopupOptin"
-import Script from "next/script"
+import Event from "../components/Event"
+import { firestore } from "../firebase/clientApp"
+import SeoHead from "../components/Seo/SeoHead"
 import LandingComponent from "../components/LandingComponent"
 
 const Section = ({
@@ -33,10 +24,7 @@ const Section = ({
   eventi: any
 }) => (
   <div className="col-span-12 px-4">
-    <h4 className="text-center text-4xl font-bold text-gray-800 md:text-left">
-      {titolo}
-    </h4>
-
+    <h4 className="text-center text-4xl font-bold md:text-left">{titolo}</h4>
     <br />
 
     <Swiper
@@ -73,10 +61,8 @@ const Home: NextPage = () => {
     collection(firestore, "fl_content"),
     {}
   )
-
   const [listaEventi, setListaEventi] = useState<any[]>([])
   const [categorie, setCategorie] = useState<any[]>([])
-
 
   useEffect(() => {
     data?.docs.forEach((d) => {
@@ -87,7 +73,7 @@ const Home: NextPage = () => {
   }, [data])
 
   useEffect(() => {
-    ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+    // ;(window.adsbygoogle = window.adsbygoogle || []).push({})
 
     const mapScript = document.createElement("script")
     const countryScript = document.createElement("script")
@@ -114,14 +100,13 @@ const Home: NextPage = () => {
     }
   }, [])
 
-  // console.log("These are the events ", listaEventi)
-
   return (
     <>
-    <div>
-    <LandingComponent eventi={listaEventi} categorie={categorie}></LandingComponent>
-    </div>
-  
+      <SeoHead
+        title="Italia Meravigliosa in tour"
+        description="Trova luoghi meravigliosi in tutta Italia alla portata di un click."
+      />
+      <LandingComponent eventi={listaEventi} categorie={categorie} />
     </>
   )
 }

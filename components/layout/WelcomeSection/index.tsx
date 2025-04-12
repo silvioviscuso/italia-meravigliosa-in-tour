@@ -1,31 +1,27 @@
-import React from "react"
-import Image from "next/image"
-import Link from "next/link"
-import Script from "next/script"
-import { WelcomeSectionContainer, ParagraphWelcome, HeadingWelcome } from './styles'
-
-const WelcomeSection = () => {
-
+const WelcomeSection = (): JSX.Element => {
   return (
-    <WelcomeSectionContainer
-      className="col-span-12 box-border flex flex-col px-4 xl:col-span-12"
+    <section
       id="who-we-are-section"
+      className="col-span-12 !mt-4 box-border flex flex-col px-4 xl:col-span-12"
     >
-
-      <HeadingWelcome className="welcome-section text-center text-gray-800">ITALIA MERAVIGLIOSA</HeadingWelcome>
-      <ParagraphWelcome className="text-center">
+      <div className="divider"></div>
+      <p className="welcome-subtitle first-title !mt-14 text-center text-3xl font-semibold">
+        Guida alla scoperta del Bel Paese
+      </p>
+      <h1 className="mt-4 text-center text-4xl font-semibold uppercase lg:text-7xl">
+        Italia Meravigliosa
+      </h1>
+      <p className="mt-8 text-center font-medium">
         Siamo partiti dalla nostra pagina Facebook a Gennaio del 2020, con
-        l’intenzione di mostrarvi le <b>meraviglie nascoste</b> del nostro paese
-      </ParagraphWelcome>
-      <ParagraphWelcome className="text-center">
-        Oggi con oltre 250 mila follower e tante foto di località
-        pubblicate e milioni di visualizzazioni, abbiamo deciso di creare
-        una redazione di <i>“Italia Meravigliosa”</i> e di creare questo portale,
-        perchè possa guidarvi in <b>luoghi meravigliosi da esplorare</b>, buon
-        viaggio a tutti voi.
-      </ParagraphWelcome>
-
-    </WelcomeSectionContainer>
+        l’intenzione di <b>mostrarvi le meraviglie nascoste del nostro paese</b>
+        , Oggi con oltre 300 mila follower e tante foto di località pubblicate e
+        milioni di visualizzazioni, abbiamo deciso di creare una redazione di
+        <i>“Italia Meravigliosa”</i> e di creare questo portale, perchè{" "}
+        <b>possa guidarvi in luoghi meravigliosi da esplorare</b>, buon viaggio
+        a tutti voi.
+      </p>
+      <div className="divider"></div>
+    </section>
   )
 }
 

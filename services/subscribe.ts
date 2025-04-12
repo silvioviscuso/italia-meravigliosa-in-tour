@@ -6,7 +6,9 @@ export const subscribeToConvertKit = async ({ email }: { email: string }) => {
   }
 
   try {
-    const API_KEY = 'EyXsBSy19wUCVAoj3TKKJw';
+    const API_KEY = process.env.NEXT_PUBLIC_CONVERKIT_API_KEY;
+
+    console.log('NEXT_PUBLIC_CONVERKIT_API_KEY', API_KEY)
 
     //what do we want to send to CK?
     const data = { email, api_key: API_KEY };
