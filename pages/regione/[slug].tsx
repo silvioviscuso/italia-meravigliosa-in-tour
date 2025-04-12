@@ -251,14 +251,12 @@ const Regione: NextPage = ({ slug }: { slug: string }) => {
 
   return (
     <div className="mx-auto mt-28 max-w-6xl">
-      <Head>
-        <meta property="og:title" content="Trova luoghi meravigliosi in tutta Italia alla portata di un click" />
-        <meta property="og:image" itemProp="image" content={evento?.copertina} />
-        <meta property="og:type" content="article" />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:url" content="https://www.italiameravigliosaintour.it" />
-      </Head>
-      
+      <SeoHead
+        title="Italia Meravigliosa in tour"
+        description="Trova luoghi meravigliosi in tutta Italia alla portata di un click."
+        imageUrl="/apple-touch-icon.png" 
+      />
+
       <main className="flex w-full flex-col px-4">
         {/* <div className="w-full bg-gray-100">
           <p className="mt-2 ml-2 rounded-lg text-gray-500">Pubblicità</p>
